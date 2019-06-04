@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     //UA変更　AndroidのChrome
     private static final String USER_AGENT = "Mozilla/5.0 (Linux; Android 4.0.3; SC-02C Build/IML74K) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.58 Mobile Safari/537.31";
-    private static final String URL = "https://cloud.soba-project.com/";
+    private static final String URL = "https://update.soba-project.com/sfc/cm/call.html";
     private WebView mWebView = null;
 
     @Override

@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mWebView = (WebView) findViewById(R.id.webview);
         createWebSettings();
-        mWebView.evaluateJavascript("if(window.localStream){window.localStream.stop();}", null);
         //webview内でページ遷移させるため
         mWebView.setWebViewClient(new WebViewClient() {
             @Override
@@ -109,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
         webSettings.setMediaPlaybackRequiresUserGesture(false);
         //表示の最適化
         webSettings.setLoadWithOverviewMode(true);
-        webSettings.setUseWideViewPort(true);
     }
 
     //戻るボタン操作で前ページ戻れるようにしている
@@ -128,4 +126,10 @@ public class MainActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        //カメラが動いていたら停止させる。
+        mWebView.evaluateJavascript("if(window.localStream){window.localStream.stop();}", null);
+    }
 }
